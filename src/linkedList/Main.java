@@ -4,31 +4,23 @@ package linkedList;
 public class Main {
     public static void main(String[] args) {
 
-        MyLinkedList<Integer> list=new MyLinkedList<>();
+        Stack <Integer> stack=new Stack<>();
 
-        list.insertionAtBeginning(10);
-        list.insertionAtEnd(20);
-        list.insertionAtEnd(30);
-        list.insertionAtEnd(40);
-        list.insertionAtEnd(50);
-        list.display();
-        System.out.println();
-        System.out.println("Size= "+list.getSize());
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
 
+        stack.display();
         System.out.println();
 
-        list.deleteFromBeginning();
-        list.display();
-        System.out.println();
-        System.out.println("Size= "+list.getSize());
+        System.out.println( stack.pop());
+        System.out.println( stack.pop());
 
 
-        list.deleteFromEnd();
-        list.display();
-        System.out.println();
-        System.out.println("Size= "+list.getSize());
+        System.out.println(stack.peek());
 
-        System.out.println(list.search(20));
+
     }
 }
 

@@ -98,10 +98,10 @@ public class MyLinkedList<T> {
         Node<T> temp=head;
 
         while(temp!=null){
-            System.out.print(temp.data+"-->");
+            System.out.println(temp.data);
             temp=temp.next;
         }
-        System.out.print("null");
+
     }
 
 
