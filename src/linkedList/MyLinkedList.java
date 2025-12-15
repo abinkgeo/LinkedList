@@ -25,6 +25,7 @@ public class MyLinkedList<T> {
             return;
         }
 
+
         Node<T> temp=head;
         while(temp.next!=null){
             temp=temp.next;
@@ -33,6 +34,39 @@ public class MyLinkedList<T> {
         size++;
     }
 
+    public  void insertAtPosition(T data, int position){
+
+        if(position<=0){
+            System.out.println("Invalid postition");
+            return;
+        }
+
+        if(position==1){
+            insertionAtBeginning(data);
+            return;
+        }
+
+        Node <T> temp=head;
+
+        for(int i=1;i<position-1;i++){
+
+            if (temp == null) {
+                System.out.println("Position out of range");
+                return;
+            }
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Position out of range");
+            return;
+        }
+
+        Node<T> newNode = new Node<>(data);
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+    }
 
     public void deleteFromBeginning(){
         if(head==null){
@@ -41,6 +75,60 @@ public class MyLinkedList<T> {
         }
         head=head.next;
         size--;
+    }
+
+    public  void delete(T data){
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        if(head.data.equals(data)){
+            head=head.next;
+            return;
+        }
+        Node<T> temp=head;
+
+        while (temp.next != null && !temp.next.data.equals(data)) {
+            temp = temp.next;
+        }
+
+        if (temp.next == null) {
+            System.out.println("Element not found");
+            return;
+        }
+
+        temp.next = temp.next.next;
+
+    }
+
+    public void deleteFromPosition(int position) {
+
+        if (position <= 0) {
+            System.out.println("Invalid position");
+            return;
+        }
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        if (position == 1) {
+            head = head.next;
+            return;
+        }
+        Node<T> temp = head;
+        for (int i = 1; i < position - 1; i++) {
+            if (temp.next == null) {
+                System.out.println("Position out of range");
+                return;
+            }
+            temp = temp.next;
+        }
+        if (temp.next == null) {
+            System.out.println("Position out of range");
+            return;
+        }
+        temp.next = temp.next.next;
     }
 
     public void deleteFromEnd(){
@@ -98,10 +186,10 @@ public class MyLinkedList<T> {
         Node<T> temp=head;
 
         while(temp!=null){
-            System.out.println(temp.data);
+            System.out.print(temp.data+"-->");
             temp=temp.next;
         }
-
+        System.out.print("null");
     }
 
 
