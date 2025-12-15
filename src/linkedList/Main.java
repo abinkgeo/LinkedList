@@ -4,23 +4,22 @@ package linkedList;
 public class Main {
     public static void main(String[] args) {
 
-        Stack <Integer> stack=new Stack<>();
+      Queue<Integer> queue=new Queue<>();
 
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.push(40);
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
 
-        stack.display();
+
+        queue.display();
         System.out.println();
+        System.out.println(queue.front());
 
-        System.out.println( stack.pop());
-        System.out.println( stack.pop());
+        queue.dequeue();
+        queue.dequeue();
 
-
-        System.out.println(stack.peek());
-
-
+        queue.display();
     }
 }
 
